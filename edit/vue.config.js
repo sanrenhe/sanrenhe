@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require('webpack');
 
 module.exports = {
-    publicPath: "/",
+    publicPath: "./",
     outputDir: __dirname.replace('edit', 'docs'),// "dist"
     productionSourceMap: false,
     filenameHashing: false,
