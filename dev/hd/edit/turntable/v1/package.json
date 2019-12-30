@@ -1,6 +1,7 @@
 {
   "name": "v1",
   "version": "0.1.0",
+  "homepage": "https://sanrenehe.github.io/hd-edit",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
