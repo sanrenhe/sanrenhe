@@ -5,14 +5,16 @@
   </div>
 </template>
 
-<script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+<script lang="ts">
+import { Component, Vue, Watch, Inject } from 'vue-property-decorator';
+import HelloWorld from '@/components/HelloWorld.vue';
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
+@Component({
+	components: {
+		HelloWorld,
+	},
+})
+export default class Index extends Vue {
+
 }
 </script>
