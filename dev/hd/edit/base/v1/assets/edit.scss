@@ -1,0 +1,470 @@
+@charset "utf-8";
+
+@import "./css/edit_base.scss";
+
+/* 图片资源 */
+%icon-warn {
+    background: url(./img/icon-warn.png) center no-repeat;
+    background-size: 100% 100%;
+}
+
+%icon-exchangeImage {
+    background: url(./img/icon-exchange.png) center no-repeat;
+    background-size: 20px 20px;
+}
+
+%icon-prizeclose {
+    background: url(./img/icon-prizeclose.png) center no-repeat;
+    background-size: 20px 20px;
+}
+
+%icon-upload {
+    background: url(./img/icon-upload.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: 20px;
+}
+
+%deleteIcon {
+    background: url(./img/icon-delete.png) no-repeat 9px 3px;
+}
+
+%editViewHeader {
+    background: url(./img/edit-view_header.png) no-repeat;
+    background-size: 100% 100%;
+}
+
+/**/
+
+/* 自定义icon */
+.el-icon-my-warn {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    @extend %icon-warn;
+}
+
+.el-icon-my-warn:before {
+    content: "替";
+    font-size: 16px;
+    visibility: hidden;
+}
+
+.el-icon-my-exchangeImage {
+    height: 55% !important;
+    width: 30px !important;
+    margin-top: 25%;
+    margin-right: 5px;
+    @extend %icon-exchangeImage;
+}
+
+.el-icon-my-exchangeImage:before {
+    border-right: 1px solid #cccccc;
+    content: "替";
+    font-size: 16px;
+    visibility: hidden;
+}
+
+.el-icon-prize-close {
+    width: 12px;
+    height: 12px;
+    background-size: 100% 100%;
+    cursor: pointer;
+    @extend %icon-prizeclose;
+}
+
+.el-icon-prize-close:before {
+    content: "替";
+    font-size: 16px;
+    visibility: hidden;
+}
+
+/**/
+
+#app {
+    width: 100%;
+    min-height: 100%;
+}
+
+.gallery_img_tip {
+    z-index: 4000 !important;
+}
+
+.el-loading-mask {
+    z-index: 9999;
+}
+
+.edit-img_tip {
+    font-size: 12px;
+    color: #ff962c;
+}
+
+.edit-page {
+    width: 100%;
+    height: 100vh;
+    // container
+    .edit-container {
+        min-width: 1300px;
+        height: 100%;
+    }
+
+    /*
+     * header menu
+     */
+    .edit-header {
+        margin-bottom: 0.5rem;
+        box-shadow: 0 6px 8px 0 rgba(217, 223, 233, 0.5);
+
+        .el-header {
+            padding: 0;
+        }
+
+        .el-menu.el-menu--horizontal {
+            border: unset;
+        }
+
+        // 页面导航-顶部
+        .edit-view_menu_top {
+            .el-menu-item {
+                padding: 0;
+                height: 3rem !important;
+                margin: 0 1rem !important;
+            }
+        }
+
+        // 活动编辑按钮
+        .edit-control_btn {
+            margin-top: 0.6rem;
+        }
+    }
+
+    .edit-wrap {
+        height: 92vh;
+        // 活动展示区
+        .edit-view_main {
+            background-color: #f3f4f8;
+            width: 430px !important;
+            height: 99%;
+            overflow: hidden;
+            overflow-y: auto;
+            padding-left: 10px;
+
+            .edit-view_edit {
+                position: relative;
+
+                .edit-view_edit_btn {
+                    width: 40px;
+                    height: 18px;
+                    line-height: 18px;
+                    text-align: center;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                }
+            }
+
+            .edit-view_edit:hover {
+                border: 1px dashed #ccc;
+
+                .edit-view_edit_btn::after {
+                    width: 100%;
+                    height: 100%;
+                    line-height: 15px;
+                    content: "编辑";
+                    display: block;
+                    background: #fff;
+                    color: #000;
+                    cursor: pointer;
+                }
+            }
+
+            // 左侧展示-头部
+            .edit-view_main_header {
+                width: 375px;
+                height: 40px;
+                padding-top: 24px;
+                margin-top: 20px;
+                position: relative;
+                z-index: 10;
+                @extend %editViewHeader;
+
+                p {
+                    text-align: center;
+                    width: 260px;
+                    height: 34px;
+                    margin: auto;
+                    line-height: 34px;
+                }
+            }
+
+            // 左侧展示-body
+            .activity-view {
+                height: 627px;
+                width: 375px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            // 页面导航-右侧
+            .edit-view_menu_right {
+                background: transparent;
+                margin-top: 12.5rem;
+
+                .el-menu-item {
+                    padding: 0 !important;
+                    height: 1rem !important;
+                    width: 1rem !important;
+                    line-height: 1rem !important;
+                    margin: 1rem 0;
+                    border-radius: 100%;
+                    text-align: center;
+                    background-color: #c9d1e0;
+                    color: #ffffff;
+                }
+
+                .is-active {
+                    background-color: #6d96ff;
+                }
+            }
+
+            // 禁用键鼠事件
+            .no-events {
+                pointer-events: none;
+            }
+        }
+        // 活动编辑区
+        .edit-control_main {
+            height: 99%;
+            overflow: hidden;
+
+            .el-main {
+                padding: 0;
+            }
+
+            .edit-control_tab {
+                height: 99%;
+                overflow: hidden;
+
+                .edit-set_tab {
+                    .el-tabs__nav {
+                        width: unset;
+                        display: block;
+                        text-align: unset;
+                    }
+                }
+
+                .el-tabs__nav {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    text-align: center;
+
+                    .el-tabs__item {
+                        flex: 1;
+                    }
+                }
+
+                .el-tabs__content {
+                    height: 90%;
+
+                    .el-tab-pane {
+                        height: 100%;
+                        overflow: auto;
+                        padding: 20px;
+                    }
+
+                    .el-collapse {
+                        border-top: transparent;
+                    }
+
+                    .edit-active {
+                        padding: 10px 20px 1px 20px;
+                        width: 92%;
+                        margin: 15px auto;
+                        box-shadow: 1px 0 15px #6d96ff, -1px 0 15px #6d96ff,
+                            0px 1px 15px #6d96ff, 0px -1px 15px #6d96ff;
+                    }
+
+                    .edit-control_ele {
+                        margin: auto;
+                        margin-bottom: 1rem;
+                        width: 98%;
+
+                        .el-col:first-child {
+                            max-width: 8rem;
+
+                            p {
+                                line-height: 2.4rem;
+
+                                i {
+                                    font-size: 1.1rem;
+                                    cursor: pointer;
+                                }
+
+                                i:hover {
+                                    color: #6d96ff;
+                                }
+                            }
+                        }
+
+                        .el-col:last-child {
+                            line-height: 2.3rem;
+
+                            .el-input__count-inner {
+                                background: transparent;
+                            }
+
+                            .el-checkbox {
+                                width: 10rem;
+                            }
+                        }
+
+                        .el-input-group__append {
+                            background: transparent;
+                            border-left: unset;
+                        }
+
+                        .edit-title_long {
+                            max-width: 12rem !important;
+                        }
+
+                        .num_text {
+                            line-height: 2.25rem;
+                        }
+                    }
+                }
+
+                .edit-control_ele_percent {
+                    font-size: 20px;
+                    color: #ff962c;
+                }
+
+                .edit-control_handleTip {
+                    float: right;
+                    width: 100%;
+                    text-align: right;
+                    margin-right: 15px;
+
+                    .edit-control_handleLine {
+                        padding-right: 15px;
+                        width: 30%;
+                    }
+
+                    .edit-control_handleGift {
+                        width: 30%;
+                        margin: auto;
+                        margin-top: -70px;
+                        padding-left: 30px;
+
+                        img {
+                            width: 100%;
+                            vertical-align: -70px;
+                        }
+
+                        .edit-control_handleText {
+                            width: 170px;
+                            font-size: 14px;
+                            color: #ff962c;
+                            margin: auto;
+                            margin-bottom: 20px;
+                        }
+                    }
+                }
+
+                .edit-control_settingTip {
+                    font-size: 12px;
+                    color: #ff962c;
+                }
+
+                .edit-control_prizeStatus {
+                    em {
+                        overflow: hidden;
+                        position: absolute;
+                        right: 0px;
+                        top: 0px;
+                        width: 60px;
+                        height: 25px;
+                        text-align: center;
+
+                        .edit-control_statusIcon {
+                            position: absolute;
+                            right: -15px;
+                            top: -10px;
+                            width: 50px;
+                            height: 25px;
+                            background-color: #e3e2e7;
+                            text-align: center;
+                            -webkit-transform: rotate(35deg);
+                            transform: rotate(35deg);
+                            color: #8d8d95;
+
+                            i {
+                                -webkit-transform: rotate(-35deg);
+                                transform: rotate(-35deg);
+                                margin-left: 5px;
+                            }
+                        }
+                    }
+                }
+
+                .edit-upload-whiteList {
+                    border: 1px solid rgba(66, 68, 94, 0.14);
+                    border-radius: 5px;
+                    min-height: 80px;
+                    width: 460px;
+
+                    .el-upload-dragger {
+                        min-height: 100px;
+                        height: unset;
+                    }
+
+                    .edit-upload-btn {
+                        margin-top: 15px;
+                        margin-left: 20px;
+                        width: 118px;
+                        height: 32px;
+                        line-height: 32px;
+                        text-align: center;
+                        float: left;
+                        font-size: 12px;
+                        color: #b3b3b3;
+                        border: 1px solid #e6e6e6;
+                        cursor: pointer;
+                        background-color: #ffffff;
+                        @extend %icon-upload;
+
+                        span {
+                            display: block;
+                            margin-top: -9px;
+                        }
+                    }
+                }
+
+                .edit-whiteTip {
+                    margin: -30px 0px 0px 20px;
+                    color: #ff962c;
+                }
+
+                .edit-whiteDelete {
+                    cursor: pointer;
+                    float: left;
+                    margin-left: 390px;
+                    margin-top: -35px;
+                    color: #6d96ff;
+
+                    .edit-whiteDeleteIcon {
+                        display: inline-block;
+                        width: 30px;
+                        height: 20px;
+                        vertical-align: -5px;
+                        @extend %deleteIcon;
+                    }
+                }
+            }
+        }
+    }
+
+    .edit-warp:hover {
+        border: 1px dashed #ccc;
+    }
+}

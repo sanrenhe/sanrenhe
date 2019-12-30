@@ -1,0 +1,47 @@
+{
+  "name": "hd",
+  "version": "0.1.0",
+  "main": "index.js",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "@tinymce/tinymce-vue": "^2.1.0",
+    "@types/clipboard": "^2.0.1",
+    "@types/jquery": "^3.3.30",
+    "@types/js-cookie": "^2.2.2",
+    "@types/sortablejs": "^1.7.2",
+    "@types/tinymce": "^4.5.22",
+    "axios": "^0.18.0",
+    "clipboard": "^2.0.4",
+    "core-js": "^2.6.5",
+    "element-ui": "^2.11.0",
+    "html2canvas": "^1.0.0-rc.5",
+    "jquery": "^3.4.1",
+    "js-cookie": "^2.2.0",
+    "sortablejs": "^1.10.0-rc3",
+    "tinymce": "^5.0.12",
+    "vant": "2.x",
+    "vue": "^2.6.10",
+    "vue-async-manager": "^0.2.0",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0",
+    "vue-router": "^3.0.3",
+    "vuex": "^3.0.1",
+    "vuex-class": "^0.3.2",
+    "weixin-js-sdk": "^1.4.0-test"
+  },
+  "devDependencies": {
+    "commander": "^2.20.0",
+    "cz-conventional-changelog": "^3.0.2",
+    "shelljs": "^0.8.3",
+    "watch": "^1.0.2"
+  },
+  "bin": {
+    "hd": "./index.js"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  }
+}
