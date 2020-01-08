@@ -1,7 +1,7 @@
 {
     "act": {
         "info": {
-            "title": "",
+            "title": "大转盘",
             "background_pic": "",
             "start_time": "",
             "end_time": "",
@@ -9,11 +9,11 @@
             "sub_name": "",
             "title_pic": "",
             "user_num": {
-                "is_show": "",
+                "is_show": "2",
                 "num_base": 0
             },
             "logo": {
-                "is_show": "",
+                "is_show": "2",
                 "pic_url": ""
             }
         },
@@ -24,8 +24,8 @@
         }
     },
     "award": [{
-        "name": "",
-        "area": "",
+        "name": "奖品",
+        "area": "1",
         "pic_url": "",
         "type": "",
         "num": 0,
