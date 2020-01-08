@@ -33,6 +33,14 @@
         "is_valid": 1,
         "desc": ""
     }],
+    "awardsType": {
+        "shiwuyouji": {
+            "label": "实物邮寄"
+        },
+        "电子通用券": {
+            "label": "电子通用券"
+        }
+    },
     "advert": [{
         "title": "",
         "position": 1,
