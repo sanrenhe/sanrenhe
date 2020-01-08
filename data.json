@@ -25,13 +25,18 @@
     },
     "award": [{
         "name": "奖品",
+        "short_name": "奖品简称",
         "area": "1",
         "pic_url": "",
         "type": "",
         "num": 0,
         "money": 0,
         "is_valid": 1,
-        "desc": ""
+        "desc": "",
+        "probability_num": 0,
+        "use_url": "",
+        "status": "",
+        "other_temp_set": {}
     }],
     "awardsType": {
         "shiwuyouji": {
@@ -47,5 +52,10 @@
         "img_url": "",
         "img_link": "",
         "is_show": "2"
-    }]
+    }],
+    "draw": {
+        "many_probability_set": {
+            "1": 1
+        }
+    }
 }
